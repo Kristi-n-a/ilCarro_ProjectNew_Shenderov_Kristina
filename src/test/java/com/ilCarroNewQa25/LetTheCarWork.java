@@ -22,7 +22,7 @@ public class LetTheCarWork extends TestBase {
         type(By.cssSelector("[name='country']"), "Israel");
         type(By.cssSelector(".address"), "Balfour Street");
         type(By.cssSelector(".distance_included"), "500");
-        type(By.cssSelector(".serial_number"), "123456");
+        type(By.cssSelector(".serial_number"), "123-45-678");
         type(By.cssSelector(".brand"), "Volkswagen ");
         type(By.cssSelector(".model"), "Bora");
         type(By.cssSelector(".year"), "2002");
