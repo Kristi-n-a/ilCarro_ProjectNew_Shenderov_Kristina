@@ -6,12 +6,9 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends TestBase {
     @BeforeMethod
-    public void ensurePreconditions(){
-        System.out.println("" + isPresentElementLogIn());
-        //goTo login page
-        if(!isLoginFormPresent()){
-            //if user logged in, click logout, go to login
-            if(!isUserLoggedIn()){
+    public void ensurePreconditions() {
+        if (!isLoginFormPresent()) {
+            if (isUserLoggedIn()) {
                 logOut();
             }
             ClickLogInTabInHeader();
@@ -19,16 +16,17 @@ public class LoginTests extends TestBase {
     }
 
     @Test
-    public void LoginRegisteredUserPositiveTest(){
+    public void loginRegisteredUserPositiveTest() {
 
-        click(By.cssSelector("[href=\"/login\"]"));
+        //do not forget to change at startup
+        type(By.name("email"), "ms@xs115.com");
+        type(By.name("password"), "1234567Aa");
 
-        ////do not forget to change at startup
-       type(By.name("email"), "mfgr588@gmail.com");
-       type(By.name("password"), "123456789Ah");
 
+        //submit login
         submitForm();
+
+
+
     }
-
-
 }

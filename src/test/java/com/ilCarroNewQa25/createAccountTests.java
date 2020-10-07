@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class createAccountTests extends TestBase {
         @BeforeMethod
         public void ensurePreconditions() {
-            if (!isSignUpPresentInHeader()) {
+            if (!isSignUpTabPresentInHeader()) {
                 logOut();
             }
         }
@@ -21,7 +21,7 @@ public class createAccountTests extends TestBase {
             type(By.cssSelector("#first_name"), "KR");
             type(By.cssSelector("#second_name"),"SH");
             //do not forget to change at startup
-            type(By.cssSelector("#email"),"kjbb55678@mail.com");
+            type(By.cssSelector("#email"),"mb@xs113.com.com");
             type(By.cssSelector("#password"),"123456789Ah");
 
             click(By.cssSelector("#check_policy"));
