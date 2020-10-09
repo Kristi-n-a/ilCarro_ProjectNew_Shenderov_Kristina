@@ -5,65 +5,61 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class createAccountTests extends TestBase {
-        @BeforeMethod
-        public void ensurePreconditions() {
-            if (!isSignUpTabPresentInHeader()) {
-                logOut();
-            }
+    public class createAccountTests extends TestBase {
+
+    @BeforeMethod
+    public void ensurePreconditions() {
+        if (!isSignUpTabPresentInHeader()) {
+            logOut();
         }
+    }
 
     @Test
-        public void testSingUp() throws InterruptedException {
-            click(By.cssSelector("[href='/signup']"));
-            Assert.assertTrue(isElementPresent(By.cssSelector("form.signup__fields")));
-           fillRegistrationForm(new User()
-                   .withfirstName("Kr")
-                   .withsecondName("SH")
-                   .withEmail("df@Jk876.com")
-                   .withPassword("98765432Ad"));
-//переписать нехватает метода без пароля,потом его добавить
+    public void testSignUp() throws InterruptedException {
+        click(By.cssSelector("[href='/signup']"));
+        Assert.assertTrue(isElementPresent(By.cssSelector("form.signup__fields")));
+        fillRegistrationForm(
+                new User()
+                        .withFirstName("Jk")
+                        .withSecondName("Vs")
+                        .withEmail("Sli44@gmail.com")
+                        .withPassword("3W2wtrewww"));
+
         click(By.cssSelector("#check_policy"));
-
         pause(2000);
-
         submitForm();
 
-            Assert.assertTrue(isLoginFormPresent());
-
-        }
+        Assert.assertTrue(isLoginFormPresent());
+    }
 
     public void pause(int millis) throws InterruptedException {
         Thread.sleep(millis);
     }
-
     @Test
-    public void testSingUp1(){
+    public void testSignUpWithOutPassword() throws InterruptedException {
+
         click(By.cssSelector("[href='/signup']"));
-        Assert.assertTrue(isElementPresent(By.cssSelector("form.signup__fields")));
+       Assert.assertTrue(isElementPresent(By.cssSelector("form.signup__fields")));
 
         fillRegistrationForm(new User()
-                .withfirstName("Moly")
-                        .withsecondName("Bgty")
-                        .withEmail("Fg76Yt@Sd.com")
-                        .withPassword("24354657Kl"));
+                .withFirstName("Mf")
+                .withSecondName("Sk")
+                .withEmail("Bi879@gmail.com"));
 
         click(By.cssSelector("#check_policy"));
+        pause(3000);
 
+        //click submit button
+        // submitForm();
 
-        submitForm();
-
-        Assert.assertTrue(isLoginFormPresent());
-
+      Assert.assertTrue(isLoginFormPresent());
     }
-
     public void fillRegistrationForm(User user) {
         type(By.name("first_name"), user.getFirstName());
         type(By.name("second_name"), user.getSecondName());
-        //do not forget to change at startup
         type(By.name("email"), user.getEmail());
         type(By.name("password"), user.getPassword());
     }
 
-}
 
+}

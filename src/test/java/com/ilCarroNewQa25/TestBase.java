@@ -1,6 +1,5 @@
 package com.ilCarroNewQa25;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,7 +14,7 @@ public class TestBase {
     static WebDriver wd;
 
     @BeforeSuite
-    public void setUp() {
+    public void setUp(){
         wd = new ChromeDriver();
         wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wd.manage().window().maximize();
@@ -24,7 +23,7 @@ public class TestBase {
     }
 
     @AfterSuite(enabled = true)
-    public void tearDown() {
+    public void tearDown(){
         wd.quit();
     }
 
@@ -33,15 +32,15 @@ public class TestBase {
     }
 
 
-    public boolean isElementPresent(By locator) {
-        return wd.findElements(locator).size() > 0;
+    public boolean isElementPresent(By locator){
+        return wd.findElements(locator).size()>0;
     }
 
-    public boolean isFindCarFormPresent() {
+    public boolean isFindCarFormPresent(){
         return isElementPresent(By.cssSelector(".Main_mainpage__find_your_car__AHLkw form"));
     }
 
-    public boolean isFindCarFormPresent2() {
+    public boolean isFindCarFormPresent2(){
         return isElementPresent2(By.cssSelector(".Main_mainpage__find_your_car__AHLkw form"));
     }
 
@@ -53,7 +52,6 @@ public class TestBase {
             return false;
         }
     }
-
     public boolean isPresentElementSearch(){
         try{
             wd.findElements(By.xpath(" //header/section[1]/ul[1]/li[1]/a[1]"));
@@ -76,37 +74,29 @@ public class TestBase {
     public boolean isPresentElementLogIn(){
         return wd.findElements(By.cssSelector("[href=\"/login\"]")).size()>0;
     }
-
-
     public void type(By locator, String text) {
         click(locator);
         wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(text);
     }
-
     public void click(By locator) {
         wd.findElement(locator).click();
     }
-
     public void submitForm() {
         new WebDriverWait(wd, 15)
                 .until(ExpectedConditions
                         .elementToBeClickable(By.cssSelector("[type='submit']"))).click();
 
     }
-
     public boolean isSignUpTabPresentInHeader() {
         return isElementPresent(By.cssSelector("[href='/signup']"));
     }
-
     public void logOut() {
         click(By.xpath("//a[contains(., 'logOut')]"));
     }
-
-    public void ClickLogInTabInHeader() {
+    public void clickLoginTabOnHeader() {
         click(By.cssSelector("[href='/login']"));
     }
-
     public boolean isUserLoggedIn() {
         return isElementPresent(By.xpath("//a[contains(., 'logOut')]"));
     }

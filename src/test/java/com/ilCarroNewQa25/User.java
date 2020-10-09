@@ -2,16 +2,16 @@ package com.ilCarroNewQa25;
 
 public class User {
     private  String firstName;
-    private String secondName;
+    private  String secondName;
     private  String email;
     private  String password;
 
-    public User withfirstName(String firstName) {
+    public User withFirstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
 
-    public User withsecondName(String secondName) {
+    public User withSecondName(String secondName) {
         this.secondName = secondName;
         return this;
     }

@@ -9,29 +9,25 @@ public class LoginTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
         if (!isLoginFormPresent()) {
-            if (isUserLoggedIn()) {
+            if(isUserLoggedIn()){
                 logOut();
             }
-            ClickLogInTabInHeader();
+            clickLoginTabOnHeader();
         }
     }
-
     @Test
     public void loginRegisteredUserPositiveTest() {
+        fillLoginForm(new User().withEmail("Kris@88.com").withPassword("13Aqqqqqqqq"));
 
-        //do not forget to change at startup
-        fillLoginForm(new User()
-                .withEmail("ssdd@67kk.com")
-                .withPassword("1234567123Df"));
-        //submit login
         submitForm();
-        Assert.assertTrue(isUserLoggedIn());
+       // Assert.assertTrue(isUserLoggedIn());
         String email = wd.findElement(By.cssSelector("[href='/account']")).getText();
         System.out.println(email);
-        Assert.assertEquals(email, "ssdd@67kk.com");
+        Assert.assertEquals(email, "Kris@88.com");
     }
     public void fillLoginForm(User user) {
         type(By.name("email"), user.getEmail());
-        type(By.name("password"),user.getPassword());
+        type(By.name("password"), user.getPassword());
     }
+
 }
