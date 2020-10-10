@@ -20,10 +20,10 @@ import org.testng.annotations.Test;
         Assert.assertTrue(isElementPresent(By.cssSelector("form.signup__fields")));
         fillRegistrationForm(
                 new User()
-                        .withFirstName("Jk")
-                        .withSecondName("Vs")
-                        .withEmail("Sli44@gmail.com")
-                        .withPassword("3W2wtrewww"));
+                        .withFirstName("JPUY")
+                        .withSecondName("VQU")
+                        .withEmail("Lisa44@gmail.com")
+                        .withPassword("3Wqwtrewww"));
 
         click(By.cssSelector("#check_policy"));
         pause(2000);
@@ -42,9 +42,10 @@ import org.testng.annotations.Test;
        Assert.assertTrue(isElementPresent(By.cssSelector("form.signup__fields")));
 
         fillRegistrationForm(new User()
-                .withFirstName("Mf")
-                .withSecondName("Sk")
-                .withEmail("Bi879@gmail.com"));
+                .withFirstName("Viktoria")
+                .withSecondName("Fols")
+                .withEmail("viktoria.katz1@gmail.com"));
+
 
         click(By.cssSelector("#check_policy"));
         pause(3000);
@@ -54,12 +55,12 @@ import org.testng.annotations.Test;
 
       Assert.assertTrue(isLoginFormPresent());
     }
-    public void fillRegistrationForm(User user) {
-        type(By.name("first_name"), user.getFirstName());
-        type(By.name("second_name"), user.getSecondName());
-        type(By.name("email"), user.getEmail());
-        type(By.name("password"), user.getPassword());
+        public void fillRegistrationForm(User user) {
+            type(By.name("first_name"), user.getFirstName());
+            type(By.name("second_name"), user.getSecondName());
+            type(By.name("email"), user.getEmail());
+            type(By.name("password"), user.getPassword());
+        }
+
+
     }
-
-
-}

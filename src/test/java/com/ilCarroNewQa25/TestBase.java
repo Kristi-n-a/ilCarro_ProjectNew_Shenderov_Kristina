@@ -74,6 +74,7 @@ public class TestBase {
     public boolean isPresentElementLogIn(){
         return wd.findElements(By.cssSelector("[href=\"/login\"]")).size()>0;
     }
+
     public void type(By locator, String text) {
         click(locator);
         wd.findElement(locator).clear();
